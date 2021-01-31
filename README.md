@@ -1,4 +1,4 @@
-# Team 16: DQM Maximization of COVID Vaccine Distribution
+# SARS-COV-DWAVE: DQM Knapsack for COVID Vaccine Distribution
 Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 ## Introduction
