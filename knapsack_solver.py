@@ -7,6 +7,7 @@ class KnapsackSolver(object):
     def __init__(self, max_weight=None):
         self.max_weight = max_weight  # Can be specified here or at solve()
         self.dqm = DiscreteQuadraticModel()
+        self.offset = 0
         self.num_items = 0
         self.item_info = []
         self.item_weight = []
@@ -40,24 +41,35 @@ class KnapsackSolver(object):
 
 
     def _build_objective(self):
-        # TODO(Turtle1331)
-        self.dqm.get_linear(0)
+        for item in range(self.num_items):
+            value = self.item_value[item]
+            states = self.item_states[item]
+
+            biases = self.dqm.get_linear(item)
+            biases += value * np.arange(states)
+            self.dqm.set_linear(item, biases)
 
     def _build_constraint(self):
-        # TODO(Turtle1331)
-        lagrange = -sum(w * q for w, q in zip(self.item_weight, self.item_states))
+        lagrange = sum(w * q for w, q in zip(self.item_weight, self.item_states))
+        self.offset = lagrange * self.max_weight ** 2
+
         for item_a in range(self.num_items):
+            weight_a = self.item_weight[item_a]
+            states_a = self.item_states[item_a]
             for item_b in range(self.num_items):
+                weight_b = self.item_weight[item_b]
+                states_b = self.item_states[item_b]
+
                 if item_a == item_b:
-                    weight_a = self.item_weight[item_a]
-                    states_a = self.item_states[item_a]
-                    self.dqm.set_linear(item_a, weight_a * np.arange(states_a))
+                    biases = self.dqm.get_linear(item_a)
+                    quad_term = np.arange(states_a)**2
+                    biases += lagrange * ((1 - 2 * self.max_weight) * quad_term)
+                    self.dqm.set_linear(item_a, biases)
                 else:
-                    weight_a = self.item_weight[item_a]
-                    weight_b = self.item_weight[item_b]
-                    states_a = self.item_states[item_a]
-                    states_b = self.item_states[item_b]
-                    self.dqm.set_quadratic
+                    biases = self.dqm.get_quadratic(item_a, item_b, array=True)
+                    quad_term = np.arange(states_a).reshape(states_a, 1) * np.arange(states_b).reshape(1, states_b)
+                    biases += lagrange * (2 * weight_a * weight_b * quad_term)
+                    self.dqm.set_quadratic(item_a, item_b, biases)
 
 
     def _build_dqm(self):
@@ -74,6 +86,7 @@ class KnapsackSolver(object):
         self._build_dqm()
         sampler = LeapHybridDQMSampler()
         sampleset = sampler.sample_dqm(self.dqm)
+        # TODO
         print(sampleset)
         return sampleset
 
