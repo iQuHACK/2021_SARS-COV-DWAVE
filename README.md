@@ -46,7 +46,7 @@ Centrally Distributed Vaccines and Ancillary Kits
 Delivery
 * Vaccine Kits/Pallets: 3600, 7800, 975, 3600, 100, 3600, 3600, 100, 7800, 7800
 * Kits/Pallet Count per Delivery: 14, 10, 20, 19, 10, 12, 20, 19, 17, 17
-Based on the CDC Moderna and Pfizer weekly shipment of doses data.
+* Based on the CDC Moderna and Pfizer weekly shipment of doses data.
 Shipments suggest that truckloads generally hold <50% capacity of pallets  
 
 
@@ -57,11 +57,10 @@ CDC COVID [Data Tracker](https://covid.cdc.gov/covid-data-tracker/index.html#dat
 [Number of Pallets per Full Truckload](https://www.freightrun.com/blog/post/full-truckloads-how-many-pallets-will-fit)
 
 
-<details>
-    <summary>Images</summary>
-    ![US Laboratory Testing](https://github.com/iQuHACK/2021_Team16/blob/main/images/US%20Lab%20Testing.png)
-    ![CA, MA, OH Data](https://github.com/iQuHACK/2021_Team16/blob/main/images/CA%2C%20MA%2C%20OH.png)
-</details>
+
+![US Laboratory Testing](https://github.com/iQuHACK/2021_Team16/blob/main/images/US%20Lab%20Testing.png)
+![CA, MA, OH Data](https://github.com/iQuHACK/2021_Team16/blob/main/images/CA%2C%20MA%2C%20OH.png)
+
 
 
 

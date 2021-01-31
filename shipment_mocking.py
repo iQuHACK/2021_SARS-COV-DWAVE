@@ -1,38 +1,35 @@
 import random
 
 
-# Pallet capacity ranges for each shipment company
-SHIPMENT_COMPANY_CAPACITIES = [
-    ("FedEx truck", 5, 20),
-    ("UPS truck", 5, 20),
-]
+MIN_SIZE = 10
+MAX_SIZE = 20
 
-VACCINE_TYPE_PALLET_SIZES = {
-    "Pfizer": 3_600,
-    "Moderna": 7_200,
+VACCINE_TYPE_SIZES = {
+    "Pfizer Kit    ": 975,
+    "Moderna Kit   ": 100,
+    "Pfizer Pallet ": 7_200,
+    "Moderna Pallet": 3_600,
 }
 
-VACCINE_TYPES = list(VACCINE_TYPE_PALLET_SIZES.keys())
-
+VACCINE_TYPES = list(VACCINE_TYPE_SIZES.keys())
 STATES = ["OH", "MA", "CA"]
 
 
 def create_mock_shipment():
     shipment = {
-        "state": random.choice(STATES),
-        "vaccine_type": random.choice(VACCINE_TYPES),
+        "State": random.choice(STATES),
+        "Vaccine Type": random.choice(VACCINE_TYPES),
     }
 
-    shipment["company"], capacity_min, capacity_max = random.choice(SHIPMENT_COMPANY_CAPACITIES)
-    pallet_capacity = random.randint(capacity_min, capacity_max)
-    pallet_size = VACCINE_TYPE_PALLET_SIZES[shipment["vaccine_type"]]
-    shipment["doses"] = pallet_capacity * pallet_size
+    capacity = random.randint(MIN_SIZE, MAX_SIZE)
+    size = VACCINE_TYPE_SIZES[shipment["Vaccine Type"]]
+    shipment["Doses"] = capacity * size
 
     return shipment
 
 
 def main():
-    for _ in range(3):
+    for _ in range(10):
         print(create_mock_shipment())
 
 
