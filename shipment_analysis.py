@@ -8,7 +8,7 @@ STATE_VACCINATION_RATES = {
 def estimate_shipment_value(shipment):
     # Estimate value as the expected amount of administered vaccines
     vaccination_rate = STATE_VACCINATION_RATES[shipment["state"]]
-    administered = int(shipment["capacity"] * vaccination_rate)
+    administered = int(shipment["doses"] * vaccination_rate)
     return administered
 
 

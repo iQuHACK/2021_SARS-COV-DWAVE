@@ -1,6 +1,5 @@
 import random
 
-
 MIN_SIZE = 10
 MAX_SIZE = 20
 
@@ -17,13 +16,13 @@ STATES = ["OH", "MA", "CA"]
 
 def create_mock_shipment():
     shipment = {
-        "State": random.choice(STATES),
-        "Vaccine Type": random.choice(VACCINE_TYPES),
+        "state": random.choice(STATES),
+        "vaccine_type": random.choice(VACCINE_TYPES),
     }
 
     capacity = random.randint(MIN_SIZE, MAX_SIZE)
-    size = VACCINE_TYPE_SIZES[shipment["Vaccine Type"]]
-    shipment["Doses"] = capacity * size
+    size = VACCINE_TYPE_SIZES[shipment["vaccine_type"]]
+    shipment["doses"] = capacity * size
 
     return shipment
 

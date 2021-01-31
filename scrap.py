@@ -2,7 +2,11 @@ from dimod import DiscreteQuadraticModel, ExactSolver
 from dwave.system import LeapHybridDQMSampler
 import numpy as np
 
+from shipment_mocking import *
+from shipment_analysis import *
+
 num_mock_shipment = 10
+
 
 class KnapsackSolver(object):
     def __init__(self, max_weight=None):
@@ -29,6 +33,7 @@ class KnapsackSolver(object):
 
 
     def _init_biases(self):
+        print(list(self.dqm.variables))
         for item_a in range(self.num_items):
             states_a = self.item_states[item_a]
             for item_b in range(self.num_items):
@@ -46,7 +51,7 @@ class KnapsackSolver(object):
             states = self.item_states[item]
 
             biases = self.dqm.get_linear(item)
-            biases += -value * np.arange(states)
+            biases += value * np.arange(states)
             self.dqm.set_linear(item, biases)
 
     def _build_constraint(self):
@@ -56,14 +61,14 @@ class KnapsackSolver(object):
         for item_a in range(self.num_items):
             weight_a = self.item_weight[item_a]
             states_a = self.item_states[item_a]
-            for item_b in range(item_a, self.num_items):
+            for item_b in range(self.num_items):
                 weight_b = self.item_weight[item_b]
                 states_b = self.item_states[item_b]
 
                 if item_a == item_b:
                     biases = self.dqm.get_linear(item_a)
-                    lin_term = np.arange(states_a)
-                    biases += lagrange * ((weight_a * lin_term)**2 - 2 * self.max_weight * weight_a * lin_term)
+                    quad_term = np.arange(states_a)**2
+                    biases += lagrange * ((1 - 2 * self.max_weight) * quad_term)
                     self.dqm.set_linear(item_a, biases)
                 else:
                     biases = self.dqm.get_quadratic(item_a, item_b, array=True)
@@ -78,22 +83,12 @@ class KnapsackSolver(object):
         self._build_constraint()
 
 
-    def solve(self, max_weight=None, debug=False):
+    def solve(self, max_weight=None):
         self.max_weight = self.max_weight or max_weight
         if not self.max_weight or self.max_weight <= 0:
             raise ValueError("KnapsackSolver needs a positive value for max_weight")
 
         self._build_dqm()
-
-        if debug:
-            for item in range(self.num_items):
-                print(self.dqm.get_linear(item))
-
-            for item_a in range(self.num_items):
-                for item_b in range(item_a, self.num_items):
-                    if item_a != item_b:
-                        print(item_a, item_b, self.dqm.get_quadratic(item_a, item_b))
-
         sampler = LeapHybridDQMSampler()
         sampleset = sampler.sample_dqm(self.dqm)
         # TODO
