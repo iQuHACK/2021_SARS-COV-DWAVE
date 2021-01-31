@@ -2,7 +2,8 @@
 Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 ## Introduction
-
+**Purpose:** To maximize state vaccination rates based on varying shipments of vaccine doses across a distribution network.
+**Knapsack Problem Summary:** You need to fill a small trick-or-treat bag with the best combination of candy without breaking the bag.
 
 
 
