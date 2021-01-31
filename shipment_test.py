@@ -18,7 +18,7 @@ def main():
 
         knapsack.add_item(shipment, weight / SCALING_FACTOR, value / SCALING_FACTOR)
 
-    knapsack.solve(NUM_VACCINE_DOSES, debug=True)
+    knapsack.solve(NUM_VACCINE_DOSES / SCALING_FACTOR, debug=True)
 
 
 if __name__ == "__main__":
