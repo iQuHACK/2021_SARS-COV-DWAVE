@@ -5,10 +5,17 @@ Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 
 ## Sample Set
-1 delivery = 200,000 vaccines
-Total deliveries = 10
-Max deliveries per state = 5
-
+Total Vaccine Deliveries
+* Delivery 1 = 150672 
+* Delivery 2 = 153488 
+* Delivery 3 = 065366 
+* Delivery 4 = 069566
+* Delivery 5 = 096803 
+* Delivery 6 = 165092 
+* Delivery 7 = 110228 
+* Delivery 8 = 195145 
+* Delivery 9 = 090395 
+* Delivery 10 = 184318
 
 Knapsack Value: Vaccinated Count
 > California      3,000,000
@@ -31,6 +38,10 @@ Total doses distributed
 
 ## Data Collection
 CDC COVID [Data Tracker](https://covid.cdc.gov/covid-data-tracker/index.html#datatracker-home) - [US Lab Testing](https://covid.cdc.gov/covid-data-tracker/#testing_tests7day)
+
+![US Laboratory Testing](https://github.com/iQuHACK/2021_Team16/blob/main/images/US%20Lab%20Testing.png)
+![CA, MA, OH Data](https://github.com/iQuHACK/2021_Team16/blob/main/images/CA%2C%20MA%2C%20OH.png)
+
 
 
 ## To-Do
