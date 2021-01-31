@@ -96,9 +96,15 @@ class KnapsackSolver(object):
 
         sampler = LeapHybridDQMSampler()
         sampleset = sampler.sample_dqm(self.dqm)
-        # TODO
-        print(sampleset)
-        return sampleset
+        if debug:
+            print(sampleset)
+
+        sample, energy, _ = sampleset.first
+        item_list = [(self.item_info[item], sample[item]) for item in range(self.num_items) if sample[item] > 0]
+        total_value = int(sum(sample[item] * self.item_value[item] for item in range(self.num_items)))
+        total_weight = int(sum(sample[item] * self.item_weight[item] for item in range(self.num_items)))
+
+        return item_list, total_value, total_weight
 
 
 def main():
@@ -110,7 +116,11 @@ def main():
     knapsack.add_item("3g $7", 3, 7)
     knapsack.add_item("4g $10", 4, 10)
 
-    knapsack.solve(4)
+    print("Solving...")
+    item_list, total_value, total_weight = knapsack.solve(4)
+    print(f"Item list: {item_list}")
+    print(f"Total value: {total_value}")
+    print(f"Total weight: {total_weight}")
 
 
 if __name__ == "__main__":
