@@ -103,11 +103,14 @@ class KnapsackSolver(object):
 
 def main():
     knapsack = KnapsackSolver()
-    
-    for _ in range(num_mock_shipment):
-        knapsack.add_item(shipment, estimate_shipment_value(shipment), shipment["doses"])
 
-    knapsack.solve(num_mock_shipment)
+    # Simple knapsack test
+    knapsack.add_item("1g $4", 1, 4)
+    knapsack.add_item("2g $5", 2, 5, 2)
+    knapsack.add_item("3g $7", 3, 7)
+    knapsack.add_item("4g $10", 4, 10)
+
+    knapsack.solve(4)
 
 
 if __name__ == "__main__":
