@@ -3,6 +3,20 @@ import random
 MIN_SIZE = 10
 MAX_SIZE = 20
 
+sample_shipments = [
+    {"state": "OH", "vaccine_type": "Moderna Pallet", "capacity": 14},
+    {"state": "CA", "vaccine_type": "Moderna Kit   ", "capacity": 10},
+    {"state": "CA", "vaccine_type": "Moderna Kit   ", "capacity": 20},
+    {"state": "OH", "vaccine_type": "Moderna Pallet", "capacity": 19},
+    {"state": "MA", "vaccine_type": "Moderna Kit   ", "capacity": 10},
+    {"state": "MA", "vaccine_type": "Moderna Pallet", "capacity": 12},
+    {"state": "CA", "vaccine_type": "Moderna Pallet", "capacity": 20},
+    {"state": "OH", "vaccine_type": "Moderna Kit   ", "capacity": 19},
+    {"state": "OH", "vaccine_type": "Moderna Pallet", "capacity": 17},
+    {"state": "CA", "vaccine_type": "Moderna Pallet", "capacity": 17},
+    
+]
+
 VACCINE_TYPE_SIZES = {
     "Moderna Kit   ": 100,
     "Moderna Pallet": 3_600,
@@ -19,6 +33,13 @@ def create_mock_shipment():
     }
 
     capacity = random.randint(MIN_SIZE, MAX_SIZE)
+    size = VACCINE_TYPE_SIZES[shipment["vaccine_type"]]
+    shipment["doses"] = capacity * size
+
+    return shipment
+
+def next_sample_shipment():
+    shipment = sample_shipments.pop(0)
     size = VACCINE_TYPE_SIZES[shipment["vaccine_type"]]
     shipment["doses"] = capacity * size
 
