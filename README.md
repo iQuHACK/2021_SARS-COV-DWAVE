@@ -9,18 +9,18 @@ Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 ![Sample Data Results Visual](https://github.com/iQuHACK/2021_Team16/blob/main/images/Sample%20Data%20Results%20Visual.png)
 
-## Example Sample Set
-Total Vaccine Deliveries (per week)
-* Delivery 1 = 50400
-* Delivery 2 = 1000
-* Delivery 3 = 2000
-* Delivery 4 = 68400
-* Delivery 5 = 1000
-* Delivery 6 = 43200
-* Delivery 7 = 72000
-* Delivery 8 = 1900
-* Delivery 9 = 61200
-* Delivery 10 = 61200
+## Example Generated Set
+10 Delivery offers from states this week
+* Delivery OH = 50400
+* Delivery CA = 1000
+* Delivery OH = 2000
+* Delivery OH = 68400
+* Delivery MA = 1000
+* Delivery MA = 43200
+* Delivery CA = 72000
+* Delivery OH = 1900
+* Delivery OH = 61200
+* Delivery CA = 61200
 
 
 Knapsack Value: Vaccinated Count
@@ -30,7 +30,7 @@ Knapsack Value: Vaccinated Count
 
 Rounded values from US Labratory Testing
 
-Knapsack Weight: Delivery Rate
+Knapsack Weight: Vaccination Rate
 * California         54.63%
 * Ohio               58.63%
 * Massachusetts      51.56%
@@ -42,6 +42,9 @@ Total knapsack value = total doses administered (Our Goal, objective function)
 Total knapsack weight = total doses distributed for CA, OH, MA (8,280,950)
 
 ## Data Collection
+Randomly Generated: kits/pallet count per delivery and delivery offers from states
+Collected from sources: vaccinated count, vaccinated rate, Moderna kits/pallets sizes, truckload capacity
+
 Centrally Distributed Vaccines and Ancillary Kits
 * Moderna: kits with 100 doses or pallet with 3,600 doses
 * Pfizer: kits with 975 doses or pallet with 7,800 doses
