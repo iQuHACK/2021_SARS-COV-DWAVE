@@ -65,28 +65,21 @@ CDC COVID [Data Tracker](https://covid.cdc.gov/covid-data-tracker/index.html#dat
 
 
 ## Installing
-This project requires Python 3. To setup and install the dependencies, run the following commands:
+This project requires Python 3. To setup and install the dependencies, run the following commands in the repository root directory:
 
 ```
-cd (cloned git repo location here)
 python -m venv venv
-(for linux users) source venv/bin/activate
-(for windows) .\venv\Scripts\activate
+
+source venv/bin/activate  # On Linux or macOS
+.\venv\bin\activate       # On Windows
+
 pip install -r requirements.txt
 ```
 
 On subsequent visits, run `source venv/bin/activate` to reactivate the virtual environment.
 
 ## Running
-You can run the project from the command line or using a Jupyter notebook.
-
-### Command line
-From the command line, run `python3 shipment_test.py`. The results are printed to standard output.
-
-#### Jupyter notebook
-To start the Jupyter notebook, run `jupyter notebook`. Wait for the browser window to open, then click on the file named `shipment_test.ipynb`.
-
-*TODO(Turtle1331) Leap authentication instructions*
+To start the Jupyter notebook, run `jupyter notebook`. Wait for the browser window to open, then click on the file named `shipment_test.ipynb`. Further instructions are in the notebook.
 
 
 ## References
