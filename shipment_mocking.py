@@ -4,9 +4,7 @@ MIN_SIZE = 10
 MAX_SIZE = 20
 
 VACCINE_TYPE_SIZES = {
-    "Pfizer Kit    ": 975,
     "Moderna Kit   ": 100,
-    "Pfizer Pallet ": 7_200,
     "Moderna Pallet": 3_600,
 }
 
