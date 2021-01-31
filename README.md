@@ -5,29 +5,47 @@ Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 
 ## Sample Set
+
+Centrally Distributed Vaccines and Ancillary Kits: 
+> Moderna: kits with 100 doses or pallet with 3,600 doses
+
+> Pfizer: kits with 975 doses or pallet with 7,800 doses
+
 Total Vaccine Deliveries
-* Delivery 1 = 150672 
-* Delivery 2 = 153488 
-* Delivery 3 = 065366 
-* Delivery 4 = 069566
-* Delivery 5 = 096803 
-* Delivery 6 = 165092 
-* Delivery 7 = 110228 
-* Delivery 8 = 195145 
-* Delivery 9 = 090395 
-* Delivery 10 = 184318
+* Delivery 1 = 3,600
+* Delivery 2 = 7,800 
+* Delivery 3 = 975 
+* Delivery 4 = 3,600
+* Delivery 5 = 100
+* Delivery 6 = 3,600
+* Delivery 7 = 3,600
+* Delivery 8 = 100 
+* Delivery 9 = 7,800
+* Delivery 10 = 7,800
+
+
 
 Knapsack Value: Vaccinated Count
 > California      3,000,000
+
 > Ohio              900,000
+
 > Massachusetts     550,000
+
 Rounded values from US Labratory Testing
+
+
 
 Knapsack Weight: Delivery Rate
 > California         54.63%
+
 > Ohio               58.63%
+
 > Massachusetts      51.56%
+
 Within each state: divided total doses administered by total distributed
+
+
 
 Total knapsack value = total doses administered (Our Goal)
 Total knapsack weight = total doses distributed for CA, OH, MA (8,280,950)
@@ -38,6 +56,11 @@ Total doses distributed
 
 ## Data Collection
 CDC COVID [Data Tracker](https://covid.cdc.gov/covid-data-tracker/index.html#datatracker-home) - [US Lab Testing](https://covid.cdc.gov/covid-data-tracker/#testing_tests7day)
+
+[CDC Vaccine Shipment Sizes](http://publichealth.lacounty.gov/acd/docs/COVID-19VaccineProductInfoGuide.pdf)
+
+
+
 
 ![US Laboratory Testing](https://github.com/iQuHACK/2021_Team16/blob/main/images/US%20Lab%20Testing.png)
 ![CA, MA, OH Data](https://github.com/iQuHACK/2021_Team16/blob/main/images/CA%2C%20MA%2C%20OH.png)
