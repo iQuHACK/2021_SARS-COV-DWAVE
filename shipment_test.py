@@ -8,7 +8,7 @@ NUM_VACCINE_DOSES = 200_000
 SCALING_FACTOR = 10_000.
 
 def main():
-    knapsack = KnapsackSolver()
+    knapsack = KnapsackSolver(SCALING_FACTOR)
 
     for _ in range(NUM_SHIPMENTS):
         shipment = create_mock_shipment()
@@ -16,9 +16,10 @@ def main():
         value = estimate_shipment_value(shipment)
         print(f"Shipment: {shipment}, value: {value}")
 
-        knapsack.add_item(shipment, weight / SCALING_FACTOR, value / SCALING_FACTOR)
+        knapsack.add_item(shipment, weight, value)
 
-    knapsack.solve(NUM_VACCINE_DOSES / SCALING_FACTOR, debug=True)
+    print("Solving...")
+    knapsack.solve(NUM_VACCINE_DOSES)
 
 
 if __name__ == "__main__":
