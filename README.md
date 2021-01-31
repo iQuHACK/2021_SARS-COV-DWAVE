@@ -7,7 +7,7 @@ Manjunath Rao, Vincent Pisani, Gary Sung, Anna Kristha Almazán Favela
 
 **DQM:** In this model, the federal vaccine distribution center is receiving offers from states to ship a given number of vaccines. The distribution center's goal is to maximize the number of people who receive the vaccine. It must consider the rate of vaccine administration per state as well as the sizes of the shipment offers to put as many vaccines as possible to good use.
 
-
+![Sample Data Results Visual](https://github.com/iQuHACK/2021_Team16/blob/main/images/Sample%20Data%20Results%20Visual.png)
 
 ## Example Sample Set
 Total Vaccine Deliveries (per week)
