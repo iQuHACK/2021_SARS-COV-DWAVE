@@ -81,7 +81,7 @@ class KnapsackSolver(object):
     def solve(self, max_weight=None, debug=False):
         self.max_weight = self.max_weight or max_weight
         if not self.max_weight or self.max_weight <= 0:
-            raise ValueError("KnapsackSolver needs a positive value for max_weight")
+            raise ValueError(f"KnapsackSolver: expected a positive integer for max_weight, got {self.max_weight}")
 
         self._build_dqm()
 
